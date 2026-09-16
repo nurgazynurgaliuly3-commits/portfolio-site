@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-heading",
+});
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 const geistMono = Geist_Mono({
@@ -21,7 +26,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
