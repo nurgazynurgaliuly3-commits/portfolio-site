@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
 import { extractHeadings, TableOfContents } from "@/components/blog/table-of-contents";
@@ -30,7 +31,7 @@ export default async function BlogPostPage({
           options={{
             mdxOptions: {
               remarkPlugins: [remarkGfm],
-              rehypePlugins: [[rehypePrettyCode, { theme: "github-dark" }]],
+              rehypePlugins: [rehypeSlug, [rehypePrettyCode, { theme: "github-dark" }]],
             },
           }}
         />
