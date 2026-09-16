@@ -1,0 +1,25 @@
+import type { Post } from "@/lib/mdx";
+
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example-portfolio.up.railway.app";
+
+export function personJsonLd(locale: "kk" | "en") {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Nurgazy Nurgaliuly",
+    jobTitle: "AI automator & AI developer",
+    url: `${SITE_URL}/${locale}`,
+    email: "mailto:nurgazynurgaliuly3@gmail.com",
+  };
+}
+
+export function articleJsonLd(post: Post, locale: "kk" | "en") {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.frontmatter.title,
+    description: post.frontmatter.description,
+    datePublished: post.frontmatter.date,
+    url: `${SITE_URL}/${locale}/blog/${post.slug}`,
+  };
+}
