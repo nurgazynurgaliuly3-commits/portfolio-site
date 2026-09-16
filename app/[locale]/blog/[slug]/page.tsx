@@ -5,6 +5,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
 import { extractHeadings, TableOfContents } from "@/components/blog/table-of-contents";
+import { articleJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const kkPosts = await getAllPosts("kk");
@@ -24,6 +25,10 @@ export default async function BlogPostPage({
 
   return (
     <article className="mx-auto grid max-w-5xl gap-8 px-4 py-12 lg:grid-cols-[1fr_240px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd(post, locale)) }}
+      />
       <div className="prose prose-invert max-w-none">
         <h1 className="font-heading">{post.frontmatter.title}</h1>
         <MDXRemote

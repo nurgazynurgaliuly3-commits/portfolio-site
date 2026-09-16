@@ -4,6 +4,7 @@ import { ProjectCard } from "@/components/projects/project-card";
 import { PostCard } from "@/components/blog/post-card";
 import { getAllPosts } from "@/lib/mdx";
 import { Button } from "@/components/ui/button";
+import { personJsonLd } from "@/lib/seo";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: "kk" | "en" }> }) {
   const { locale } = await params;
@@ -12,6 +13,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: "
 
   return (
     <div className="mx-auto max-w-5xl px-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(locale)) }}
+      />
       <section className="grid gap-8 py-20 md:grid-cols-2 md:items-center">
         <div>
           <h1 className="font-heading text-4xl font-bold leading-tight md:text-5xl">
