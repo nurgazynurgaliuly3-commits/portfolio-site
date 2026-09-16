@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "I build AI automations and web apps",
+    "heroSubtitle": "Nurgazy Nurgaliuly — AI automator & AI developer",
+    "featuredProjects": "Featured projects",
+    "latestPosts": "Latest posts"
+  }
+}

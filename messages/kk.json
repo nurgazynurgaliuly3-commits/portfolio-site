@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Басты бет",
+    "projects": "Жобалар",
+    "blog": "Блог",
+    "about": "Мен туралы",
+    "contact": "Байланыс"
+  },
+  "home": {
+    "heroTitle": "AI автоматизациялар мен веб-қосымшалар жасаймын",
+    "heroSubtitle": "Нұрғалиұлы Нұрғазы — AI automator & AI developer",
+    "featuredProjects": "Таңдаулы жобалар",
+    "latestPosts": "Соңғы жазбалар"
+  }
+}
