@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { Geist_Mono, Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-export const spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-heading",
 });
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
