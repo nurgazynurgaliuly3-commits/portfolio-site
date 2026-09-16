@@ -18,18 +18,6 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             nurgazynurgaliuly3@gmail.com
           </a>
         </li>
-        <li>
-          Telegram:{" "}
-          <a className="font-medium underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-primary" href="https://t.me/" target="_blank" rel="noreferrer">
-            @yourusername
-          </a>
-        </li>
-        <li>
-          WhatsApp:{" "}
-          <a className="font-medium underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-primary" href="https://wa.me/" target="_blank" rel="noreferrer">
-            wa.me/yournumber
-          </a>
-        </li>
       </ul>
     </div>
   );

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -10,6 +11,27 @@ import { articleJsonLd } from "@/lib/seo";
 export async function generateStaticParams() {
   const kkPosts = await getAllPosts("kk");
   return kkPosts.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: "kk" | "en"; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const post = await getPostBySlug(locale, slug);
+  if (!post) return {};
+
+  return {
+    title: post.frontmatter.title,
+    description: post.frontmatter.description,
+    alternates: {
+      languages: {
+        kk: `/kk/blog/${slug}`,
+        en: `/en/blog/${slug}`,
+      },
+    },
+  };
 }
 
 export default async function BlogPostPage({

@@ -1,9 +1,31 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { PROJECTS, getProjectBySlug } from "@/data/projects";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: "kk" | "en"; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) return {};
+
+  return {
+    title: project.title[locale],
+    description: project.summary[locale],
+    alternates: {
+      languages: {
+        kk: `/kk/projects/${slug}`,
+        en: `/en/projects/${slug}`,
+      },
+    },
+  };
 }
 
 export default async function ProjectDetailPage({

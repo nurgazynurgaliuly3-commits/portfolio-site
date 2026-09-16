@@ -28,9 +28,29 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: "Nurgazy Nurgaliuly — AI automator & AI developer",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const title = "Nurgazy Nurgaliuly — AI automator & AI developer";
+  const description =
+    locale === "kk"
+      ? "AI автоматтандырушы және AI әзірлеуші портфолиосы."
+      : "Portfolio of an AI automator & AI developer.";
+
+  return {
+    title,
+    description,
+    alternates: {
+      languages: {
+        kk: "/kk",
+        en: "/en",
+      },
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

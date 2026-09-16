@@ -1,6 +1,6 @@
 import type { Post } from "@/lib/mdx";
 
-export const SITE_URL = "https://example-portfolio.up.railway.app";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example-portfolio.up.railway.app";
 
 export function personJsonLd(locale: "kk" | "en") {
   return {

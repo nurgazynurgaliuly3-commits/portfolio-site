@@ -12,14 +12,6 @@ export function Footer() {
           <a className="transition-colors hover:text-primary" href="mailto:nurgazynurgaliuly3@gmail.com">
             Email
           </a>
-          <a
-            className="transition-colors hover:text-primary"
-            href="https://t.me/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Telegram
-          </a>
           <a className="transition-colors hover:text-primary" href={`/${locale}/contact`}>
             {t("contact")}
           </a>
