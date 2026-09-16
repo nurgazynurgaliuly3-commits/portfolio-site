@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
     slug: "mini-ecommerce",
     title: { kk: "Интернет-дүкен (mini e-commerce)", en: "Mini E-Commerce Store" },
     summary: {
-      kk: "Каталог, sebет және checkout ағынымен шағын интернет-дүкен.",
+      kk: "Каталог, себет және checkout ағынымен шағын интернет-дүкен.",
       en: "A small storefront with catalog, cart, and checkout flow.",
     },
     role: "development",
