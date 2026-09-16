@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { ThemeProvider } from "next-themes";
 import { Geist_Mono, Space_Grotesk, Inter } from "next/font/google";
 import { routing } from "@/i18n/routing";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -55,7 +57,11 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
