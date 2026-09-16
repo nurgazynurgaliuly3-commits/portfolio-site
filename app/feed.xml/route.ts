@@ -1,6 +1,15 @@
 import { getAllPosts } from "@/lib/mdx";
 import { SITE_URL } from "@/lib/seo";
 
+function escapeXml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 export async function GET() {
   const posts = await getAllPosts("kk");
 
@@ -8,9 +17,9 @@ export async function GET() {
     .map(
       (p) => `
     <item>
-      <title>${p.frontmatter.title}</title>
+      <title>${escapeXml(p.frontmatter.title)}</title>
       <link>${SITE_URL}/kk/blog/${p.slug}</link>
-      <description>${p.frontmatter.description}</description>
+      <description>${escapeXml(p.frontmatter.description)}</description>
       <pubDate>${new Date(p.frontmatter.date).toUTCString()}</pubDate>
     </item>`,
     )
