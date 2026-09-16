@@ -21,34 +21,35 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const timeline = locale === "kk" ? TIMELINE_KK : TIMELINE_EN;
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="font-heading text-3xl font-bold">
+    <div className="mx-auto max-w-3xl px-4 py-14 md:py-20">
+      <h1 className="font-heading text-[clamp(2rem,5vw,3rem)] font-bold leading-[1.05] tracking-[-0.035em]">
         {locale === "kk" ? "Мен туралы" : "About me"}
       </h1>
-      <p className="mt-4 text-muted-foreground">
+      <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
         {locale === "kk"
           ? "Нұрғалиұлы Нұрғазы — AI автоматизациялар, сайттар және веб қосымшалар жасайтын фрилансер."
           : "Nurgazy Nurgaliuly — a freelancer building AI automations, websites, and web apps."}
       </p>
 
-      <Separator className="my-8" />
+      <Separator className="my-12" />
 
-      <h2 className="font-heading text-xl font-semibold">{locale === "kk" ? "Дағдылар" : "Skills"}</h2>
+      <h2 className="section-heading text-xl">{locale === "kk" ? "Дағдылар" : "Skills"}</h2>
       <div className="mt-4 flex flex-wrap gap-2">
         {SKILLS.map((s) => (
           <Badge key={s}>{s}</Badge>
         ))}
       </div>
 
-      <Separator className="my-8" />
+      <Separator className="my-12" />
 
-      <h2 className="font-heading text-xl font-semibold">
+      <h2 className="section-heading text-xl">
         {locale === "kk" ? "Хронология" : "Timeline"}
       </h2>
-      <ol className="mt-4 space-y-4 border-l border-border pl-4">
+      <ol className="mt-6 space-y-5 border-l border-border pl-5">
         {timeline.map((t) => (
           <li key={t.year}>
-            <span className="font-heading text-primary">{t.year}</span> — {t.text}
+            <span className="font-heading font-semibold text-primary">{t.year}</span>{" "}
+            <span className="text-muted-foreground">{t.text}</span>
           </li>
         ))}
       </ol>

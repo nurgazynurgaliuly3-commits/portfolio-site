@@ -17,27 +17,27 @@ export default async function HomePage({ params }: { params: Promise<{ locale: "
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(locale)) }}
       />
-      <section className="grid gap-8 py-20 md:grid-cols-2 md:items-center">
+      <section className="grid items-center gap-10 py-16 md:grid-cols-[1.15fr_1fr] md:gap-14 md:pt-24 md:pb-20">
         <div>
-          <h1 className="font-heading text-4xl font-bold leading-tight md:text-5xl">
+          <h1 className="font-heading text-[clamp(2.5rem,7vw,4.25rem)] font-bold leading-[1.02] tracking-[-0.035em] text-balance">
             {locale === "kk"
               ? "AI автоматизациялар мен веб-қосымшалар жасаймын"
               : "I build AI automations and web apps"}
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-6 max-w-[42ch] text-lg leading-relaxed text-muted-foreground">
             {locale === "kk"
               ? "Нұрғалиұлы Нұрғазы — AI automator & AI developer"
               : "Nurgazy Nurgaliuly — AI automator & AI developer"}
           </p>
-          <Button render={<Link href={`/${locale}/projects`} />} className="mt-6">
+          <Button render={<Link href={`/${locale}/projects`} />} size="lg" className="mt-8">
             {locale === "kk" ? "Жобаларды көру" : "View projects"}
           </Button>
         </div>
-        <div className="h-64 rounded-2xl bg-gradient-to-br from-primary to-accent opacity-80 md:h-80" />
+        <div className="hero-panel aspect-[4/3] w-full md:aspect-square md:max-h-[26rem]" />
       </section>
 
-      <section className="py-12">
-        <h2 className="mb-6 font-heading text-2xl font-bold">
+      <section className="py-12 md:py-16">
+        <h2 className="section-heading mb-8 text-2xl md:text-3xl">
           {locale === "kk" ? "Таңдаулы жобалар" : "Featured projects"}
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -48,8 +48,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: "
       </section>
 
       {posts.length > 0 && (
-        <section className="py-12">
-          <h2 className="mb-6 font-heading text-2xl font-bold">
+        <section className="py-12 md:py-16">
+          <h2 className="section-heading mb-8 text-2xl md:text-3xl">
             {locale === "kk" ? "Соңғы жазбалар" : "Latest posts"}
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

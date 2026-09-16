@@ -5,16 +5,21 @@ import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project, locale }: { project: Project; locale: "kk" | "en" }) {
   return (
-    <Link href={`/${locale}/projects/${project.slug}`}>
-      <Card className="h-full transition hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
+    <Link
+      href={`/${locale}/projects/${project.slug}`}
+      className="group block h-full rounded-xl outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+    >
+      <Card className="card-interactive h-full">
         <CardHeader>
-          <CardTitle className="font-heading">{project.title[locale]}</CardTitle>
+          <CardTitle className="font-heading text-lg tracking-tight transition-colors group-hover:text-primary">
+            {project.title[locale]}
+          </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3">
-          <p className="text-sm text-muted-foreground">{project.summary[locale]}</p>
-          <div className="flex flex-wrap gap-2">
+        <CardContent className="space-y-4">
+          <p className="text-sm leading-relaxed text-muted-foreground">{project.summary[locale]}</p>
+          <div className="flex flex-wrap gap-1.5">
             {project.stack.map((s) => (
-              <Badge key={s} variant="secondary">
+              <Badge key={s} variant="secondary" className="text-[0.7rem]">
                 {s}
               </Badge>
             ))}

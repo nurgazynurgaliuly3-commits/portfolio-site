@@ -59,7 +59,7 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           <NextIntlClientProvider messages={messages}>
             <Header />
-            <main className="min-h-screen">{children}</main>
+            <main className="flex-1">{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>

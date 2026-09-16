@@ -17,9 +17,9 @@ export function ProjectFilter({ projects, locale }: { projects: Project[]; local
   const visible = filter === "all" ? projects : projects.filter((p) => p.role === filter);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <Tabs value={filter} onValueChange={(v) => setFilter(v as ProjectRole | "all")}>
-        <TabsList>
+        <TabsList className="flex-wrap">
           {FILTERS.map((f) => (
             <TabsTrigger key={f.value} value={f.value}>
               {f[locale]}

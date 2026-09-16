@@ -24,13 +24,14 @@ export default async function BlogPostPage({
   const headings = extractHeadings(post.content);
 
   return (
-    <article className="mx-auto grid max-w-5xl gap-8 px-4 py-12 lg:grid-cols-[1fr_240px]">
+    <article className="mx-auto grid max-w-5xl gap-10 px-4 py-14 md:py-20 lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-14">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd(post, locale)) }}
       />
-      <div className="prose prose-invert max-w-none">
-        <h1 className="font-heading">{post.frontmatter.title}</h1>
+      <div className="prose">
+        <h1>{post.frontmatter.title}</h1>
+        <div className="rule-accent mt-6 h-[3px] w-16 rounded-full" />
         <MDXRemote
           source={post.content}
           options={{

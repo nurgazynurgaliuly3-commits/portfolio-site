@@ -28,15 +28,18 @@ export function Header() {
   }));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        <Link href={`/${locale}`} className="font-heading text-lg font-bold">
-          N.N.
+    <header className="sticky top-0 z-40 bg-background/75 backdrop-blur-md">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+        <Link
+          href={`/${locale}`}
+          className="font-heading text-xl font-bold tracking-[-0.04em] transition-colors hover:text-primary"
+        >
+          NN
         </Link>
 
-        <nav className="hidden gap-6 md:flex">
+        <nav className="hidden gap-7 md:flex">
           {links.map((l) => (
-            <Link key={l.key} href={l.href} className="text-sm hover:text-primary">
+            <Link key={l.key} href={l.href} className="nav-link">
               {l.label}
             </Link>
           ))}
@@ -54,13 +57,17 @@ export function Header() {
             <Menu className="h-5 w-5" />
           </SheetTrigger>
           <SheetContent>
-            <nav className="mt-8 flex flex-col gap-4">
+            <nav className="mt-10 flex flex-col gap-1 px-2">
               {links.map((l) => (
-                <Link key={l.key} href={l.href} className="text-lg">
+                <Link
+                  key={l.key}
+                  href={l.href}
+                  className="rounded-lg px-2 py-2.5 font-heading text-2xl font-semibold tracking-tight transition-colors hover:text-primary"
+                >
                   {l.label}
                 </Link>
               ))}
-              <div className="mt-4 flex items-center gap-2">
+              <div className="mt-6 flex items-center gap-2 px-2">
                 <LocaleSwitcher />
                 <ThemeToggle />
               </div>
@@ -68,6 +75,9 @@ export function Header() {
           </SheetContent>
         </Sheet>
       </div>
+      {/* The site's signature gradient marks the header's edge instead of a
+          flat 1px border. */}
+      <div className="rule-accent h-px w-full opacity-30" />
     </header>
   );
 }
