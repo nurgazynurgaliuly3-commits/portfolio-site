@@ -1,23 +1,18 @@
-export type Heading = { id: string; text: string; level: 2 | 3 };
+import GithubSlugger from "github-slugger";
 
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-");
-}
+export type Heading = { id: string; text: string; level: 2 | 3 };
 
 export function extractHeadings(markdown: string): Heading[] {
   const lines = markdown.split("\n");
   const headings: Heading[] = [];
+  const slugger = new GithubSlugger();
 
   for (const line of lines) {
     const match = /^(#{2,3})\s+(.+)$/.exec(line.trim());
     if (!match) continue;
     const level = match[1].length as 2 | 3;
     const text = match[2].trim();
-    headings.push({ id: slugify(text), text, level });
+    headings.push({ id: slugger.slug(text), text, level });
   }
 
   return headings;
