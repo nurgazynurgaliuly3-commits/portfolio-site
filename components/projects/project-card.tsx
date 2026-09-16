@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +10,18 @@ export function ProjectCard({ project, locale }: { project: Project; locale: "kk
       href={`/${locale}/projects/${project.slug}`}
       className="group block h-full rounded-xl outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
     >
-      <Card className="card-interactive h-full">
+      <Card className="card-interactive h-full overflow-hidden">
+        {project.image && (
+          <div className="relative aspect-video w-full overflow-hidden border-b border-border">
+            <Image
+              src={project.image}
+              alt={project.title[locale]}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+            />
+          </div>
+        )}
         <CardHeader>
           <CardTitle className="font-heading text-lg tracking-tight transition-colors group-hover:text-primary">
             {project.title[locale]}

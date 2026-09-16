@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { PROJECTS, getProjectBySlug } from "@/data/projects";
@@ -43,6 +44,18 @@ export default async function ProjectDetailPage({
         {project.title[locale]}
       </h1>
       <div className="rule-accent mt-6 h-[3px] w-16 rounded-full" />
+      {project.image && (
+        <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-xl border border-border">
+          <Image
+            src={project.image}
+            alt={project.title[locale]}
+            fill
+            sizes="(min-width: 768px) 48rem, 100vw"
+            className="object-cover object-top"
+            priority
+          />
+        </div>
+      )}
       <div className="mt-6 flex flex-wrap gap-1.5">
         {project.stack.map((s) => (
           <Badge key={s} variant="secondary" className="text-[0.7rem]">

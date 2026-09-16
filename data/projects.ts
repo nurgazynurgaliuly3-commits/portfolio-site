@@ -8,6 +8,7 @@ export type Project = {
   stack: string[];
   outcome: { kk: string; en: string };
   featured: boolean;
+  image?: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -160,6 +161,22 @@ export const PROJECTS: Project[] = [
       en: "Reduced client support tickets by 40%.",
     },
     featured: true,
+  },
+  {
+    slug: "nauat-office-erp",
+    title: { kk: "Nauat Office — кафе ERP жүйесі", en: "Nauat Office — Cafe ERP System" },
+    summary: {
+      kk: "Кафе, қасапхана және жартылай өнім цехына арналған толық партиялық ет есебі: қабылдаудан бөлшектеуге, қоймааралық ауыстыруға және өзіндік құнды бөлуге дейін. 4 рөл (админ, қасапшы, шеф-повар, бухгалтер), Supabase Auth/PostgreSQL/RLS, Telegram/WhatsApp хабарландыру, Excel/PDF экспорт, мобильге орнатылатын PWA.",
+      en: "A full batch-level meat-inventory ERP for a cafe, butchery, and prep kitchen: from receiving through butchery, inter-warehouse transfers, and cost allocation. 4 roles (admin, butcher, chef, accountant), Supabase Auth/PostgreSQL/RLS, Telegram/WhatsApp notifications, Excel/PDF export, installable PWA.",
+    },
+    role: "both",
+    stack: ["Next.js 15", "React 19", "TypeScript", "Supabase", "PostgreSQL", "PWA"],
+    outcome: {
+      kk: "Ет партиясын қабылдаудан бастап клиентке дейінгі толық traceability мен нақты өзіндік құн есебін бір жүйеге біріктірді.",
+      en: "Unified full batch traceability and accurate cost accounting, from meat receiving to final product, into one system.",
+    },
+    featured: true,
+    image: "/projects/nauat-office-erp.png",
   },
 ];
 
